@@ -5,7 +5,7 @@ onready var grid = get_node("grid")
 var cell = preload("res://scenes/cell.tscn")
 
 var grid_index = []
-var cell_size = 64
+var cell_size = 16
 var grid_size = 5
 
 var empty_cell = Vector2(2, 3)
