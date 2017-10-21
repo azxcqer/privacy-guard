@@ -3,8 +3,7 @@ extends Node2D
 var cena
 
 var pular = false
-var pegarDoc = false
-var pararPular = false
+var pegarItem = false
  
 var estado = true # colocar no main
 const jogando = true # colocar no main
@@ -16,7 +15,7 @@ func _ready():
 	cena = get_tree().get_current_scene()
 	
 func _input(event):
-	if event.is_action_pressed("pular"):
+	if event.is_action_pressed("jump"):
 		pular()
 
 func pular():
