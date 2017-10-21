@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scenes/base_scene.tscn" type="PackedScene" id=1]
+
+[node name="test_scene" type="Node2D"]
+
+[node name="base_scene" parent="." instance=ExtResource( 1 )]
+
+
+[editable path="base_scene"]
