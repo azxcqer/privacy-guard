@@ -31,7 +31,7 @@ func create_grid():
 			grid_index[i].append([]) #cria uma matriz na matriz
 			grid_index[i][j] = c #adiciona essa cell na linha i e na coluna j
 			grid.add_child(c) #adiciona a cell ao grid
-			c.set_pos(Vector2(i * cell_size, j * cell_size)) #define a posicao da cell
+			c.set_pos(Vector2(i * cell_size + cell_size, j * cell_size)) #define a posicao da cell
 			if i == empty_cell.x and j == empty_cell.y: #verifica se essa cell que acabou de ser instanciada eh a cell vazia
 				c.set_empty() #define ela como vazia -- funcao em cell.gd
 
