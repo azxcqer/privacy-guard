@@ -8,7 +8,12 @@ var grid_index = []
 var cell_size = 16
 var grid_size = 5
 
+var file_cell = Vector2(1, 3)
 var empty_cell = Vector2(2, 3)
+var destination_cell = Vector2(1, 1)
+
+var up_arrows = [Vector2(1, 2), Vector2(1, 3), Vector2(1, 4)]
+var arrows = [up_arrows]
 
 func _ready():
 	create_grid()
@@ -21,6 +26,8 @@ func _input(event):
 		#print(str(x) + " " + str(y))
 		if x < grid_size and y < grid_size: #verifica se o jogador clicou dentro do grid
 			check_neighbors(x, y) #verifica os vizinhos
+	if event.is_action_pressed("ui_accept"):
+		commit()
 
 func create_grid():
 	for i in range(grid_size): # linhas
@@ -34,8 +41,13 @@ func create_grid():
 			c.set_pos(Vector2(i * cell_size + cell_size, j * cell_size)) #define a posicao da cell
 			if i == empty_cell.x and j == empty_cell.y: #verifica se essa cell que acabou de ser instanciada eh a cell vazia
 				c.set_empty() #define ela como vazia -- funcao em cell.gd
+			if i == destination_cell.x and j == destination_cell.y:
+				c.set_destination()
+	
+	for arrow in up_arrows:
+		grid_index[arrow.x][arrow.y].set_direction(0, -1)
 
-func check_neighbors(x, y):	
+func check_neighbors(x, y):
 	if y - 1 >= 0: #se o topo nao for fora do grid
 		if grid_index[x][y-1].is_empty:
 			change_cell_position(x, y, x, y-1)
@@ -58,3 +70,20 @@ func change_cell_position(x, y, u, v): #troca a posicao da cell clicada com a ce
 	empty = grid_index[u][v]
 	grid_index[u][v] =  grid_index[x][y]
 	grid_index[x][y] = empty
+
+func commit():
+	var iterator = file_cell
+	for n in range(10):
+		var has_reached = false
+		var next_pos = grid_index[iterator.x][iterator.y].direction
+		print(next_pos)
+		if iterator.x + next_pos.x == destination_cell.x and iterator.y + next_pos.y == destination_cell.y:
+			print("chegou no destino")
+			has_reached = true
+			break
+		else:
+			iterator += next_pos
+			print(iterator)
+		
+		if(not has_reached):
+			print("não chegou")
