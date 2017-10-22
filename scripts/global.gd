@@ -11,6 +11,10 @@ var savegame = File.new()
 var save_path = "user://savegame.save"
 var progress = 0
 
+func next(a):
+	print("changing level!")
+	get_tree().change_scene(a)
+
 # create save function
 func create_save():
 	print("creating save")
