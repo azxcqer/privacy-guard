@@ -1,36 +1,59 @@
 extends Control
 
-const GAME_DATA_FILE = "game_data.txt"
 var os = OS.get_name()
 var size = OS.get_window_size()
 var resize = 3
-var game_data = {current_level = 0}
+
+# save vars
+# init the file
+var savegame = File.new()
+# save path
+var save_path = "user://savegame.save"
+var progress = 0
+
+# create save function
+func create_save():
+	print("creating save")
+	savegame.open(save_path, File.WRITE)
+	savegame.close()
+	save_progress()
+
+	print(savegame)
+
+func save_progress():
+	if savegame != null:
+		savegame.open(save_path, File.WRITE)
+		savegame.store_var(progress)
+		savegame.close()
+		print("progress saved " + str(progress) + "!")
+
+func load_progress():
+		savegame.open(save_path, File.READ) #open the file
+		progress = savegame.get_var() #get the value
+		savegame.close()
+		print("saved: " + str(progress))
+
 
 func _ready():
 	get_big()
 	set_process_input(true)
-	#retrieves game data
-	var file = File.new()
-	if file.open(GAME_DATA_FILE, File.READ) != 0:
-		print("Erro ao abrir o arquivo")
+	randomize()
+
+	# save things
+	if !savegame.file_exists(save_path):
+		create_save()
 	else:
-		var json = file.get_as_text()
-		file.close()
-		game_data.parse_json(json)
+		load_progress()
 
 func get_big():
 	if os != "Html5":
 		OS.set_window_size(resize * size)
 
 func _input(event):
-	if event.type == InputEvent.KEY:
-		if Input.is_key_pressed(KEY_ESCAPE):
-			get_tree().quit()
+	if event.is_action_pressed("ui_quit"):
+		save_progress()
+		get_tree().quit()
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-		var file = File.new()
-		if file.open(GAME_DATA_FILE, File.WRITE) == 0:
-			file.store_line(game_data.to_json())
-			file.close()
-		get_tree().quit()
+		save_progress()
