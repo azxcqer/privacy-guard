@@ -27,7 +27,7 @@ func _ready():
 	visible.connect("exit_screen", self, "clean")
 	
 func clean():
-	if cleanable:
+	if cleanable and not global.justChangedLevel:
 		print("cleaned!")
 		die()
 	

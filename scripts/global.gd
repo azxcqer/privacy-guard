@@ -3,6 +3,7 @@ extends Control
 var os = OS.get_name()
 var size = OS.get_window_size()
 var resize = 3
+var justChangedLevel = false
 
 # save vars
 # init the file

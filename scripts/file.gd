@@ -18,4 +18,5 @@ func collides(thing):
 		if a.isTerminal:
 			print("sucess!")
 			print(nextLevel)
+			global.justChangedLevel = true
 			global.next(nextLevel)
