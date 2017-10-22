@@ -49,7 +49,7 @@ func release(thing):
 	get_parent().add_child(thing)
 	thing.set_global_pos(a)
 	print("release!")
-	thing.set_mode(RigidBody2D.MODE_CHARACTER)
+	thing.set_mode(thing.defMode)
 
 func _process(delta):
 	if jump && jumpAble:
