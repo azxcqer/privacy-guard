@@ -63,6 +63,7 @@ transform/pos = Vector2( 20, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+visibility/visible = false
 anchor_mode = 1
 rotating = false
 current = false
