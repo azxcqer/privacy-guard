@@ -22,8 +22,9 @@ func die():
 	queue_free()
 	
 func jump():
-	set_axis_velocity(Vector2(0,jumpHeight))
-	jump = false
+	if jumpAble:
+		set_axis_velocity(Vector2(0,jumpHeight))
+		jumpAble = false
 
 func change_direction():
 	if dir == 1:
@@ -33,14 +34,14 @@ func change_direction():
 	
 func _process(delta):
 	var a = ray.is_colliding()
-	if a && get_linear_velocity().y <= 0 && jumper:
-		jump = true
+	if a && get_linear_velocity().y <= 0:
+		jumpAble = true
 	
 func _fixed_process(delta):
 	# keep me straight as not to fuck everything up
 	set_rot(0)
 	# if I can jump them I will
-	if jump:
+	if jumper:
 		jump()
 	# if I can move so I will
 	if dir != 0:
