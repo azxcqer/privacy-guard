@@ -4,8 +4,8 @@ extends RigidBody2D
 export var dir = 1
 var dirLast = dir
 var autoMoves = true
-var speed = 40
-var jumpHeight = -100
+var speed = 50
+var jumpHeight = -95
 var jump = false
 # should I auto jump?
 var jumper = true
@@ -17,6 +17,7 @@ func _ready():
 	set_fixed_process(true)
 	set_process(true)
 	change_direction()
+	set_gravity_scale(1.5)
 	
 func die():
 	queue_free()
