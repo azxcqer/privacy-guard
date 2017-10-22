@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -8, -8, 8, -8, 8, 8, -8, 8, -8, -8 )
+points = Vector2Array( -8, -8, 8, -8, 5.5, 2, 0, 7.8, -5.5, 2, -8, -8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -16,7 +16,7 @@ extents = Vector2( 15, 5 )
 [node name="player" type="RigidBody2D"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -46,7 +46,7 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -8, -8, -8, 8, 8, 8, 8, -8, -8, -8 )
+polygon = Vector2Array( -8, -8, -5.5, 2, 0, 7.8, 5.5, 2, 8, -8, -8, -8 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
