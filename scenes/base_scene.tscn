@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://resources/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/terminal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/file.tscn" type="PackedScene" id=4]
 
 [node name="base_scene" type="Node2D"]
 
@@ -32,5 +33,9 @@ dir = -1
 [node name="terminal" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 192, 160 )
+
+[node name="file" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 128, 144 )
 
 
