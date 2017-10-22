@@ -5,7 +5,7 @@ var pickedUp = false
 var pickTarget = ""
 var targeted = ""
 
-onready var pickupArea = get_node("pickup/Area2D")
+onready var pickupArea = get_node("Area2D")
 onready var camera = get_node("Camera2D")
 
 func _ready():
