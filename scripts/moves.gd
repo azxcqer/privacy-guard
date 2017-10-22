@@ -11,6 +11,7 @@ var jump = false
 var jumper = true
 var jumpAble = false
 onready var ray = get_node("feet")
+onready var visible = VisibilityNotifier2D.new()
 
 func _ready():
 	ray.add_exception(self)
@@ -19,6 +20,14 @@ func _ready():
 	change_direction()
 	set_gravity_scale(1.5)
 	set_mode(RigidBody2D.MODE_CHARACTER)
+	
+	add_child(visible)
+	visible.set_global_pos(get_global_pos())
+	visible.connect("exit_screen", self, "clean")
+	
+func clean():
+	print("cleaned!")
+	die()
 	
 func die():
 	queue_free()
