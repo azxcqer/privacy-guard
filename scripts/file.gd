@@ -7,7 +7,7 @@ func _ready():
 	zone.connect("area_enter", self, "collides")
 
 func destroy():
-	queue_free()
+	global.reload()
 
 func collides(thing):
 	var a = thing.get_parent()

@@ -3,7 +3,7 @@ extends RigidBody2D
 # move vars
 export var dir = 1
 var dirLast = dir
-var autoMoves = true
+var moves = true
 var speed = 50
 var jumpHeight = -95
 var jump = false
@@ -44,10 +44,7 @@ func _fixed_process(delta):
 	if jumper:
 		jump()
 	# if I can move so I will
-	if dir != 0:
+	if dir != 0 && moves:
 		set_axis_velocity(Vector2(speed * dir, 0))
 	
 	change_direction()
-
-	if autoMoves:
-		pass

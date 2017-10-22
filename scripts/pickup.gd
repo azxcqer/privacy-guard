@@ -1,10 +1,9 @@
-extends RigidBody2D
+extends "res://scripts/moves.gd"
 
 var pickme = true
 var defMode
 
 func _ready():
-	var a = RigidBody2D.MODE_CHARACTER
-	set_mode(a)
-	defMode = a
-	pass
+	defMode = get_mode()
+	moves = false
+	jumper = false

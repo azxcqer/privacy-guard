@@ -19,6 +19,9 @@ func _ready():
 	
 	pickupArea.connect("body_enter", self, "youre_here")
 	pickupArea.connect("body_exit", self, "cya")
+
+func die():
+	global.reload()
 	
 func youre_here(thing):
 	targeted = thing
@@ -62,5 +65,4 @@ func _input(event):
 	jump = Input.is_action_pressed("ui_up")
 	dir = (Input.is_action_pressed("ui_left")) * -1 + Input.is_action_pressed("ui_right")
 	if Input.is_action_pressed("ui_select"):
-		pickup()
-	
+		pickup()	
