@@ -9,6 +9,7 @@ var jumpHeight = -100
 var jump = false
 # should I auto jump?
 var jumper = true
+var jumpAble = false
 onready var ray = get_node("feet")
 
 func _ready():
