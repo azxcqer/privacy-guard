@@ -44,10 +44,12 @@ func grab(thing):
 	var a = pickupPoint.get_global_pos()
 	print("grabby!")
 	pickTarget = thing
+	thing.cleanable = false
 	thing.get_parent().remove_child(thing) 
 	pickupPoint.add_child(thing)
 	thing.set_global_pos(a)
 	thing.set_mode(RigidBody2D.MODE_STATIC)
+	
 
 func release(thing):
 	var a = pickupPoint.get_global_pos()
@@ -56,6 +58,7 @@ func release(thing):
 	thing.set_global_pos(a)
 	print("release!")
 	thing.set_mode(thing.defMode)
+	thing.cleanable = true
 
 func _process(delta):
 	if jump && jumpAble:

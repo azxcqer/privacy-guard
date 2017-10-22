@@ -6,7 +6,7 @@ export var nextLevel = ""
 func _ready():
 	zone.connect("area_enter", self, "collides")
 
-func destroy():
+func die():
 	global.reload()
 
 func collides(thing):

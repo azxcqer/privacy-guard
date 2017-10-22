@@ -10,6 +10,7 @@ var jump = false
 # should I auto jump?
 var jumper = true
 var jumpAble = false
+var cleanable = true
 onready var ray = get_node("feet")
 onready var visible = VisibilityNotifier2D.new()
 
@@ -26,8 +27,9 @@ func _ready():
 	visible.connect("exit_screen", self, "clean")
 	
 func clean():
-	print("cleaned!")
-	die()
+	if cleanable:
+		print("cleaned!")
+		die()
 	
 func die():
 	queue_free()
