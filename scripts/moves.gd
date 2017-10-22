@@ -36,7 +36,6 @@ func _process(delta):
 	if a && get_linear_velocity().y <= 0 && jumper:
 		jump = true
 	
-
 func _fixed_process(delta):
 	# keep me straight as not to fuck everything up
 	set_rot(0)
