@@ -9,22 +9,20 @@
 [node name="TileMap" parent="base_scene"]
 
 transform/pos = Vector2( 138.588, 74.784 )
-tile_data = IntArray( 327673, 0, 327674, 0, 327675, 0, 327676, 0, 327677, 0, 327678, 0, 327679, 0, 262144, 0, 262145, 0, 262146, 0, 262147, 0, 262148, 0, 262149, 0 )
+tile_data = IntArray( 262142, 0, 262143, 0, 196614, 0, 327671, 0, 327672, 0, 327677, 0, 262150, 0, 393208, 0, 327684, 0, 327685, 0, 327686, 0, 458744, 0, 458745, 0, 458746, 0, 458747, 0, 458748, 0, 458749, 0, 458750, 0, 458751, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0 )
 
 [node name="player" parent="base_scene"]
 
-editor/display_folded = true
-transform/pos = Vector2( 43.3442, 117.29 )
+transform/pos = Vector2( 10, 130 )
 
 [node name="terminal" parent="base_scene"]
 
-transform/pos = Vector2( 226.622, 130.574 )
+transform/pos = Vector2( 242.356, 114.733 )
 
 [node name="file" parent="base_scene"]
 
-transform/pos = Vector2( 130.94, 127.093 )
-nextLevel = "res://scenes/stages/2.tscn"
+transform/pos = Vector2( 120, 110 )
+nextLevel = "res://scenes/stages/1.tscn"
 
 
 [editable path="base_scene"]
-[editable path="base_scene/player"]
