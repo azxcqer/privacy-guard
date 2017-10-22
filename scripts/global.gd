@@ -11,6 +11,9 @@ var savegame = File.new()
 var save_path = "user://savegame.save"
 var progress = 0
 
+func reload():
+	get_tree().reload_current_scene()
+
 func next(a):
 	print("changing level!")
 	get_tree().change_scene(a)
@@ -57,6 +60,8 @@ func _input(event):
 	if event.is_action_pressed("ui_quit"):
 		save_progress()
 		get_tree().quit()
+	if event.is_action_pressed("ui_restart"):
+		reload()
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
