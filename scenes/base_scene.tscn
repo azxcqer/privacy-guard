@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://resources/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/terminal.tscn" type="PackedScene" id=3]
 
 [node name="base_scene" type="Node2D"]
 
@@ -27,5 +28,9 @@ tile_data = IntArray(  )
 
 transform/pos = Vector2( 128, 96 )
 dir = -1
+
+[node name="terminal" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 192, 160 )
 
 
