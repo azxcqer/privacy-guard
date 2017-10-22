@@ -18,6 +18,7 @@ func _ready():
 	set_process(true)
 	change_direction()
 	set_gravity_scale(1.5)
+	set_mode(RigidBody2D.MODE_CHARACTER)
 	
 func die():
 	queue_free()
@@ -39,8 +40,6 @@ func _process(delta):
 		jumpAble = true
 	
 func _fixed_process(delta):
-	# keep me straight as not to fuck everything up
-	set_rot(0)
 	# if I can jump them I will
 	if jumper:
 		jump()
