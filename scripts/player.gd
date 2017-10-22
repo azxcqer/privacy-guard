@@ -6,6 +6,7 @@ var pickTarget = ""
 var targeted = ""
 
 onready var pickupArea = get_node("pickup/Area2D")
+onready var camera = get_node("Camera2D")
 
 func _ready():
 	set_process_input(true)
@@ -13,6 +14,8 @@ func _ready():
 	jump = false
 	dir = 0
 	jumper = false
+	
+	# camera.make_current()
 	
 	pickupArea.connect("body_enter", self, "youre_here")
 	pickupArea.connect("body_exit", self, "cya")
