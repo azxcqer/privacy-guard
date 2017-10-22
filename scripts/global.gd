@@ -16,7 +16,7 @@ func reload():
 	get_tree().reload_current_scene()
 
 func next(a):
-	print("changing level!")
+	print("changing level! to " + str(a))
 	get_tree().change_scene(a)
 
 # create save function
